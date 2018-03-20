@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="static/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="static/css/common.css" rel="stylesheet">
+    <link href="static/css/user.css" rel="stylesheet">
+</head>
+<body>
+    <div class="box">
+        <div id="info-box" class="sub-box">
+            <h3>查看用户</h3>
+            <hr />
+            <p><img id="avatar" class="img-thumbnail" /></p>
+            <p><span class="info-label">昵称：</span><span class="info-value" id="nick"></span></p>
+            <p><span class="info-label">交易次数：</span><span class="info-value" id="history"></span></p>
+            <div id="info-div">
+                <p><span class="info-label">姓名：</span><span class="info-value" id="name"></span></p>
+                <p><span class="info-label">性别：</span><span class="info-value" id="sex"></span></p>
+                <p><span class="info-label">年龄：</span><span class="info-value" id="age"></span></p>
+                <p><span class="info-label">地址：</span><span class="info-value" id="address"></span></p>
+                <p><span class="info-label">手机：</span><span class="info-value" id="phone"></span></p>
+                <p><span class="info-label">邮箱：</span><span class="info-value" id="mail"></span></p>
+                <p><span class="info-label">Q Q：</span><span class="info-value" id="qq"></span></p>
+                <p><span class="info-label">微信：</span><span class="info-value" id="wx"></span></p>
+                <p><span class="info-label">简介：</span><span class="info-value" id="introduction"></span></p>
+            </div>
+            <div id="info-not-public-div">
+                <p>该用户个人信息不公开</p>
+            </div>
+        </div>
+        <div id="chat-box" class="sub-box">
+            <h3>聊天信息</h3>
+            <hr />
+            <div id="chat-window">
+                <!-- <p class="chat-receive">
+                    <span class="chat-nick">橙风：</span>
+                    <span class="chat-date">3天前</span>
+                    <span class="chat-content">你好啊</span>
+                </p>
+                <p class="chat-send">
+                    <span class="chat-date">3天前</span>
+                    <span class="chat-nick">沐雨：</span>
+                    <span class="chat-content">你好呀</span>
+                </p> -->
+            </div>
+            <br />
+            <textarea id="send-textarea" class="form-control"></textarea>
+            <br />
+            <button id="send-btn" class="btn btn-primary">发送</button>
+        </div>
+
+
+        <div class="menu">
+            <ul>
+                <hr />
+                <li id="info-li">用户资料</li>
+                <hr /> 
+                <li id="chat-li">用户聊天</li>
+                <hr /> 
+            </ul>
+        </div>
+    </div>
+    <script src="static/jquery/jquery.js"></script>
+    <script src="static/distpicker/distpicker.js"></script>
+    <script src="static/wangEditor/wangEditor.js"></script>
+    <script src="static/noty/noty.js"></script>
+    <script src="static/muyu/muyu.js"></script>
+    <script src="static/js/common.js"></script>
+    <script src="static/js/user.js"></script>
+</body>
+</html>

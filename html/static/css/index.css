@@ -1,0 +1,64 @@
+#main {background: rgb(241, 243, 247);width: 100%;height: 100%;}
+
+#top-nav {width: 100%;height: 45px;background: white;border-bottom: 1.5px solid rgb(223, 224, 228);position: absolute;z-index: 999;}
+
+#top-nav-left {height: 100%;float: left;margin-left: 20px;}
+
+#banner {color: rgb(83, 83, 83);font-size: 20px;line-height: 45px;cursor: pointer;}
+
+#top-nav-right {float: right;height: 100%;margin-right: 100px;}
+
+#avatar {height: 90%;border-radius: 25px;position:relative; top: 5px;cursor: pointer;height: 30px;transition: transform 0.5s;border-radius: 50%;}
+#avatar:hover {transform: scale(1.5);}
+
+.top-nav-right-btn {font-size: 13px;display: inline-block;position: relative;top: 5px;margin-left: 15px;cursor: pointer;}
+
+#avatar, #message, #setting, #order {display: none;}
+
+#publish-or-login {width: 60px;height: 115%;background: rgb(218, 83, 128);top: 0px;text-align: center;border-radius: 0 0 10px 10px;float: right;padding-top: 10px;color: white;font-size: 14px;}
+#publish-or-login:hover {background: rgb(222, 101, 141);}
+
+#left-nav {height: 100%;width: 200px;background: white;position: absolute;border-right: 1px solid rgb(223, 224, 228);top: 0px;padding-top: 60px;z-index: 1;}
+
+#banner-img {width: 100%;}
+
+#address-span {margin-left: -5px;}
+
+#province-select {margin: 5px 0;}
+
+#city-select {margin: 5px 0;}
+
+.left-nav-ul {width: 100%;background: none;padding-top: 10px;padding-bottom: 10px;cursor: pointer;height: 50px;overflow: hidden;transition:height 1s;}
+
+.left-nav-ul-title {height: 50px;line-height: 50px;}
+.left-nav-ul:hover {height: 200px;}
+.left-nav-ul:hover .left-nav-ul-title {background: rgb(241, 243, 247);}
+
+.left-nav-icon {width: 25px;margin-right: 10px;margin-left: 10px;}
+
+.left-nav-li {padding-left: 15px;padding-right: 15px;}
+
+.left-nav-li a {display: inline-block;color: gray;font-size: 14px;margin-left: 5px;margin-right: 5px;}
+.left-nav-li a:hover {color: green;}
+
+#right-content-main {width: 1000px;height: 100%}
+
+@media screen and (max-width: 2500px) {
+    #right-content {width: 100%;height: 100%;padding: 75px 0 0 550px;overflow-y: scroll;}
+    #right-content-main {float: left;}
+}
+
+@media screen and (max-width: 2000px) {
+    #right-content {width: 100%;height: 100%;padding: 75px 0 0 350px;overflow-y: scroll;}
+    #right-content-main {float: left;}
+}
+
+@media screen and (max-width: 1500px) {
+    #right-content {width: 100%;height: 100%;padding: 75px 25px 0 200px;overflow-y: scroll;}
+    #right-content-main {float: right;}
+}
+
+@media screen and (max-width: 1250px) {
+    #right-content {width: 100%;height: 100%;padding: 75px 25px 0 225px;overflow-y: hidden;}
+    #right-content-main {float: left;width: 700px;overflow-x: scroll;}
+}

@@ -1,0 +1,17 @@
+body {height: 1000px;}
+
+.box {background: rgb(241, 243, 247);width: 1000px;height: 1000px;}
+
+.form {width: 600px; height: auto;background: white;float: left;border: 1.5px solid lightgray;padding: 20px 20px;}
+
+.form label {font-size: 16px;font-weight: bold;margin-right: 20px;}
+
+.form .form-inline .input-group .form-control {height: 40px;width: 200px;border-radius: 5px;}
+
+.form .form-inline .input-group .distpicker-select {width: 100px;}
+
+.form .form-inline .input-group .introduce-textarea {width: 300px;height: 100px;}
+
+.form .input-group {margin: 5px 0;}
+
+.form-detail {line-height: 40px;font-size: 16px;color: #737373;margin-left: 20px;}

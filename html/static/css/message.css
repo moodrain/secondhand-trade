@@ -1,0 +1,22 @@
+body {height: 1000px;}
+
+.box {background: rgb(241, 243, 247);width: 1000px;height: 1000px;}
+
+.sub-box {width: 600px; height: auto;background: white;float: left;border: 1.5px solid lightgray;padding: 20px 20px;height: 400px;overflow-y: scroll;}
+
+#notice-box {display: none;}
+
+.menu {width: 275px;height: 150px;background: white;float: right;border: 1.5px solid lightgray;padding: 20px 20px;font-size: 18px;text-align: center;line-height: 50px;}
+
+.menu li {height: 50px;cursor: pointer;}
+.menu li:hover {background: lightgray;}
+
+.menu hr {margin: 0;}
+
+.box-ul {width: 100%;height: auto;}
+.box-ul li {height: 30px;}
+.box-ul li img {width: 20px;height: 20px;border-radius: 50%;margin-top: -5px;}
+.box-ul li .message-response {float: right;color: blue;}
+.box-ul li .message-responsed {float: right;color: green;}
+.box-ul li .message-nick {color: green;margin-left: 10px;}
+.box-ul li .message-date {float: right;color: lightgray;margin-right: 5px;}

@@ -1,0 +1,28 @@
+http://www.app.com:80/api {
+	proxy / http://localhost:8080/api
+}
+
+http://www.app.com:80/static {
+	root ./html/static
+}
+
+http://www.app.com:80 {
+	root ./html/www
+
+}
+
+http://admin.app.com:80/static/admin {
+	root ./html/admin/static/
+}
+
+http://admin.app.com:80/static {
+	root ./html/static/
+}
+
+http://admin.app.com:80 {
+	root ./html/admin
+}
+
+http://admin.app.com:80/api {
+	proxy / http://localhost:8080/api
+}

@@ -1,0 +1,30 @@
+body {height: 1000px;}
+
+.box {background: rgb(241, 243, 247);width: 1000px;height: 1000px;}
+
+.sub-box {width: 600px; height: auto;background: white;float: left;border: 1.5px solid lightgray;padding: 20px 20px;}
+.sub-box label {font-size: 16px;font-weight: bold;margin-right: 20px;}
+.sub-box .form-inline .input-group .form-control {height: 40px;width: 200px;border-radius: 5px;}
+.sub-box .form-inline .input-group .distpicker-select {width: 100px;}
+.sub-box .form-inline .input-group .introduce-textarea {width: 300px;height: 100px;}
+.sub-box .input-group {margin: 5px 0;}
+
+.form-detail {line-height: 40px;font-size: 16px;color: #737373;margin-left: 20px;}
+
+.menu {width: 275px;height: 150px;background: white;float: right;border: 1.5px solid lightgray;padding: 20px 20px;font-size: 18px;text-align: center;line-height: 50px;}
+.menu li {height: 50px;cursor: pointer;}
+.menu li:hover {background: lightgray;}
+.menu hr {margin: 0;}
+
+.info-label {font-size: 18px;}
+.info-value {font-size: 18px;}
+
+#avatar {width: 100px;height: 100px;}
+
+#chat-window {border: 1px solid lightskyblue;border-radius: 5px;padding: 10px;height: 300px;overflow-y: scroll;}
+
+.chat-send {text-align: right;}
+.chat-date {color: gray;}
+.chat-send .chat-content {color: green;}
+.chat-send .chat-nick,.chat-date {float: left;margin-left: 3px}
+.chat-receive .chat-nick,.chat-date {margin-left: 3px}

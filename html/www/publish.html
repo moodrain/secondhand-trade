@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="static/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="static/css/common.css" rel="stylesheet">
+    <link href="static/css/publish.css" rel="stylesheet">
+</head>
+<body>
+    <div class="box">
+        <div id="publish-box" class="sub-box">
+            <h3>发布商品</h3>
+            <hr />
+            <form class="form-inline">
+                <div class="input-group">
+                    <label>商品名称</label>
+                    <input type="text" id="publish-name-input" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <label>商品价格</label>
+                    <input type="number" id="publish-price-input" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <label>商品图片</label>
+                    <input type="file" id="publish-img-input" class="form-control" />
+                </div>
+                <div id="publish-distpicker-div" class="input-group">
+                    <label>地址</label>
+                    <select id="publish-province-select" class="form-control distpicker-select"></select>
+                    <select id="publish-city-select" class="form-control distpicker-select"></select>
+                    <select id="publish-district-select" class="form-control distpicker-select"></select>
+                </div>
+                <div class="input-group">
+                    <label>分类</label>
+                    <select id="publish-type-select" class="form-control type-select"></select>
+                    <select id="publish-subType-select" class="form-control type-select"></select>
+                </div>
+                <div>
+                    <hr />
+                    <div id="publish-editor-toolbar" class="editor-toolbar"></div>
+                    <hr />
+                    <div id="publish-editor" class="editor"></div>
+                </div>
+            </form>
+            <hr />
+            <button id="publish-submit-btn" type="button" class="btn btn-primary">确认发布</button>
+        </div>
+        <div id="list-box" class="sub-box">
+            <h3>商品列表</h3>
+            <hr />
+            <table class="table table-hover">
+                <tbody id="list-table">
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>价格</th>
+                        <th>状态</th>
+                        <th>日期</th>
+                        <th>操作</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="update-box" class="sub-box">
+            <h3>修改商品</h3>
+            <hr />
+            <form class="form-inline">
+                <input type="number" id="update-id-input" class="hidden" /> 
+                <div class="input-group">
+                    <label>商品名称</label>
+                    <input type="text" id="update-name-input" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <label>商品价格</label>
+                    <input type="text" id="update-price-input" class="form-control" />
+                </div>
+                <div class="input-group">
+                    <label>商品图片</label>
+                    <input type="file" id="update-img-input" class="form-control" />
+                </div>
+                <div id="update-distpicker-div" class="input-group">
+                    <label>地址</label>
+                    <select id="update-province-select" class="form-control distpicker-select"></select>
+                    <select id="update-city-select" class="form-control distpicker-select"></select>
+                    <select id="update-district-select" class="form-control distpicker-select"></select>
+                </div>
+                <div class="input-group">
+                    <label>分类</label>
+                    <select id="update-type-select" class="form-control type-select"></select>
+                    <select id="update-subType-select" class="form-control type-select"></select>
+                </div>
+                <div>
+                    <hr />
+                    <div id="update-editor-toolbar" class="editor-toolbar"></div>
+                    <hr />
+                    <div id="update-editor" class="editor"></div>
+                </div>
+            </form>
+            <hr />
+            <button id="update-submit-btn" type="button" class="btn btn-primary">确认修改</button>
+        </div>
+
+
+        <div class="menu">
+            <ul>
+                <hr /> 
+                <li id="publish-li">发布商品</li>
+                <hr /> 
+                <li id="list-li">商品列表</li>
+                <hr /> 
+                <li id="update-li">修改商品</li>
+                <hr /> 
+            </ul>
+        </div>
+    </div>
+    <script src="static/jquery/jquery.js"></script>
+    <script src="static/distpicker/distpicker.js"></script>
+    <script src="static/wangEditor/wangEditor.js"></script>
+    <script src="static/noty/noty.js"></script>
+    <script src="static/muyu/muyu.js"></script>
+    <script src="static/js/common.js"></script>
+    <script src="static/js/publish.js"></script>
+</body>
+</html>

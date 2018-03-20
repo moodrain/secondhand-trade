@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="static/bootstrap/bootstrap.css" rel="stylesheet">
+    <link href="static/css/common.css" rel="stylesheet">
+    <link href="static/css/setting.css" rel="stylesheet">
+</head>
+<body>
+    <div class="box">
+        <div class="form">
+            <h3>用户设置</h3>
+            <hr />
+            <form class="form-inline">
+                <div class="input-group">
+                    <label>用户信息</label>
+                    <select id="info-public-select" class="form-control">
+                        <option value="0">保密</option>
+                        <option value="1">公开</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>交易历史</label>
+                    <select id="order-history-public-select" class="form-control">
+                        <option value="0">保密</option>
+                        <option value="1">公开</option>
+                    </select>
+                </div>
+            </form>
+            <hr />
+            <button id="setting-submit-btn" type="button" class="btn btn-primary">确认修改</button>
+            <hr />
+            <h3>账号操作</h3>
+            <hr />
+            <button id="logout-btn" type="button" class="btn btn-warning">退出登录</button>
+        </div>
+    </div>
+    <script src="static/jquery/jquery.js"></script>
+    <script src="static/noty/noty.js"></script>
+    <script src="static/muyu/muyu.js"></script>
+    <script src="static/js/common.js"></script>
+    <script src="static/js/setting.js"></script>
+</body>
+</html>

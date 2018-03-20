@@ -1,0 +1,11 @@
+body {height: 1000px;}
+
+.box {width: 1000px;height: 1000px;border-radius: 5px;padding: 20px;background: rgb(241, 243, 247);}
+
+.table {border: 1px solid lightgray;border-radius: 5px;text-align: center;}
+
+.goods-thumbnail {height: 100px;}
+
+.order-operation-cancel {margin-left: 10px;}
+
+#order-box {height: 500px; overflow-y: scroll;background: white;border: 1.5px solid lightgray;padding: 20px 20px;}

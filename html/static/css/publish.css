@@ -1,0 +1,36 @@
+body {height: 1000px;}
+
+.box {background: rgb(241, 243, 247);width: 1000px;height: 1000px;}
+
+.sub-box {width: 600px; height: auto;background: white;float: left;border: 1.5px solid lightgray;padding: 20px 20px;}
+
+.sub-box label {font-size: 16px;font-weight: bold;margin-right: 20px;}
+
+.sub-box .form-inline .input-group .form-control {height: 40px;width: 200px;border-radius: 5px;}
+
+.sub-box .form-inline .input-group .distpicker-select {width: 100px;}
+
+.sub-box .form-inline .input-group .type-select {width: 150px;}
+
+.sub-box .form-inline .input-group .introduce-textarea {width: 300px;height: 100px;}
+
+.sub-box .input-group {margin: 5px 0;}
+
+.form-detail {line-height: 40px;font-size: 16px;color: #737373;margin-left: 20px;}
+
+.menu {width: 275px;height: 200px;background: white;float: right;border: 1.5px solid lightgray;padding: 20px 20px;font-size: 18px;text-align: center;line-height: 50px;}
+
+.menu li {height: 50px;cursor: pointer;}
+.menu li:hover {background: lightgray;}
+.menu #update-li {cursor: no-drop;}
+.menu #update-li:hover {background: white;}
+
+.menu hr {margin: 0;}
+
+.editor {width: 550px;height: 150px;}
+.editor-toolbar {width: 550px;height: 50px;flex-wrap: wrap;}
+
+#list-table {text-align: center;}
+.list-operation-cancel {margin-left: 5px;}
+
+#list-box {height: 610px;overflow-y: scroll;}

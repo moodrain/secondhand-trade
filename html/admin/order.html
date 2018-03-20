@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/admin/layui/css/layui.css">
+</head>
+<body>
+    <table id="main" lay-filter="main"></table>
+    <script src="static/admin/layui/layui.js"></script>
+    <script src="static/admin/js/common.js"></script>
+<script>
+layui.use(['element', 'table'], function(){
+    var element = layui.element;
+    var table = layui.table;
+    table.render({
+        elem: '#main',
+        url: api + 'order?token=' + token,
+        height: 480,
+        page: true,
+        cols: [[
+            {field: 'id', title: '编号', sort: true},
+            {title: '商品编号', sort: true, templet: function(row){
+                return row.goods.id;
+            }},
+            {title: '商品名称', sort: true, templet: function(row){
+                return row.goods.name;
+            }},
+            {title: '买家编号', sort: true, templet: function(row){
+                return row.buyer.id;
+            }},
+            {title: '买家昵称', sort: true, templet: function(row){
+                return row.buyer.nick;
+            }},
+            {title: '卖家编号', sort: true, templet: function(row){
+                return row.seller.id;
+            }},
+            {title: '卖家昵称', sort: true, templet: function(row){
+                return row.seller.nick;
+            }},
+            {title: '状态', sort: true, templet: function(row){
+                switch(row.status)
+                {
+                    case 1: return '等待卖家同意';
+                    case 2: return '等待双方同意';
+                    case 3: return '等待买家确认';
+                    case 4: return '等待卖家确认';
+                    case 5: return '订单完成';
+                    case 6: return '卖家未同意';
+                    case 7: return '买家取消';
+                    case 8: return '卖家取消';
+                    default: return '未知';
+                }
+            }},
+            {field: 'date', title: '时间', sort: true, templet: function(row){
+                let obj = new Date(row.date);
+                return obj.getFullYear().toString() + ' - ' + obj.getMonth().toString().padStart(2, '0') + ' - ' + obj.getDay().toString().padStart(2, '0');
+            }},
+        ]],
+    });
+});
+</script>
+</body>
+</html>
