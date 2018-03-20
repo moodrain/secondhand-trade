@@ -15,11 +15,13 @@ and just type ```caddy``` in termial and start the web.
 
 **Spring Boot** is much better than **Spring MVC** !!, but there are few way to learn Spring Boot comprehensively in China.
 
+the SMS service in user register and reset password is **not available** but you can function it easily with http request.
+
 set your database config in application.yml and type ```mvn spring-boot:run``` in terminal start the api
 
 ## the HTML
 I am **guity** about the html, css and js file. they are far from standard.Don't code front-end like me...
-
+ 
 
 -------
 # 二手交易平台
@@ -39,6 +41,8 @@ I am **guity** about the html, css and js file. they are far from standard.Don't
 ## 关于Spring Boot
 
 **Spring Boot** 比 **Spring MVC** 好太多啦，可惜国内没有什么地方系统的学习。
+
+用户注册和修改密码时所需的短信服务是**不可用的**，不过你可以通过http请求你的方式实现它。
 
 在 application.yml 中设置你的数据库然后在终端敲 ```mvn spring-boot:run``` 启动 api 服务。
 
