@@ -13,25 +13,21 @@ import org.springframework.web.filter.CorsFilter;
 
 @org.springframework.context.annotation.Configuration
 public class Configuration {
-
     @Bean
     public PasswordEncoder passwordEncoder()
     {
         return new BCryptPasswordEncoder();
     }
-
     @Bean
     public PhoneValidator phoneValidator()
     {
         return new PhoneValidator();
     }
-
     @Bean
     public HttpClient httpClient()
     {
         return new HttpClient();
     }
-
     @Profile("dev")
     @Bean
     public FilterRegistrationBean corsFilter() {
@@ -46,5 +42,4 @@ public class Configuration {
             bean.setOrder(0);
             return bean;
     }
-
 }

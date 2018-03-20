@@ -54,7 +54,7 @@ public class GoodsController {
         return new Response<Goods>(200, "", goodsRepository.findOne(id));
     }
 
-    @GetMapping(value="type")
+    @GetMapping(value = "type")
     public Response<List<Type>> types()
     {
         List<Type> types = typeRepository.findAll();

@@ -55,5 +55,4 @@ public class MessageController
         return messageService.sendMessage(session, id, content);
     }
 
-
 }

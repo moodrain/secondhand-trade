@@ -26,9 +26,6 @@ public class CommonAspect {
             "&& !execution(* muyu.trade.controller.GoodsController.goodsItem(..))")
     public void loginCheck() {}
 
-    @Pointcut("execution(* muyu.trade.controller.AdminController.*(..))")
-    public void adminCheck(){};
-
     @Around("loginCheck()")
     public Object loginCheckAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable
     {
@@ -38,6 +35,9 @@ public class CommonAspect {
         else
             return (Object) proceedingJoinPoint.proceed();
     }
+
+    @Pointcut("execution(* muyu.trade.controller.AdminController.*(..))")
+    public void adminCheck(){};
 
     @Around("adminCheck()")
     public Object adminCheckAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable

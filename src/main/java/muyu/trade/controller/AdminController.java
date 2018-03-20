@@ -87,7 +87,4 @@ public class AdminController {
         return goodsService.addType(parent, name, icon);
     }
 
-
-
-
 }

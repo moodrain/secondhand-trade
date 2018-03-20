@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @GetMapping(value = "user-info")
-    public Response<User> isLogin(HttpSession session)
+    public Response<User> userInfo(HttpSession session)
     {
         return new Response<User>(200, "", (User) session.getAttribute("user"));
     }
