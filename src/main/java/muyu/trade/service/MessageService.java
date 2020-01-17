@@ -20,15 +20,12 @@ public class MessageService {
 
     private MessageRepository messageRepository;
     private UserRepository userRepository;
-    @Autowired
-    public MessageService(MessageRepository messageRepository, UserRepository userRepository)
-    {
+
+    public MessageService(MessageRepository messageRepository, UserRepository userRepository) {
         this.messageRepository = messageRepository;
         this.userRepository = userRepository;
     }
-
-    public Response<HashMap> messages(HttpSession session)
-    {
+    public Response<HashMap> messages(HttpSession session) {
         User user = (User)session.getAttribute("user");
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(0, 100, sort);
@@ -37,16 +34,12 @@ public class MessageService {
         hash.put("data", messageRepository.findMessagesByFromOrTo(user, user, pageable));
         return new Response<>(200, "", hash);
     }
-
-    public Response<List<Message>> chatMessages(HttpSession session, Integer id, Integer messageId)
-    {
+    public Response<List<Message>> chatMessages(HttpSession session, Integer id, Integer messageId) {
         User user = (User)session.getAttribute("user");
         User another = userRepository.findOne(id);
         return new Response<>(200, "", messageRepository.getChatMessage(messageId, user.getId(), another.getId()));
     }
-
-    public Response<Object> sendMessage(HttpSession session, Integer id, String content)
-    {
+    public Response<Object> sendMessage(HttpSession session, Integer id, String content) {
         User from = (User)session.getAttribute("user");
         User to = userRepository.findOne(id);
         if(to == null)
@@ -61,9 +54,7 @@ public class MessageService {
         messageRepository.save(msg);
         return new Response<>();
     }
-
-    public Boolean sendNoticeMessage(Integer fromId, Integer toId, String content)
-    {
+    public Boolean sendNoticeMessage(Integer fromId, Integer toId, String content) {
         User from;
         if(fromId.equals(0))
         {

@@ -12,7 +12,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -23,14 +22,11 @@ public class GoodsService {
     private TypeRepository typeRepository;
 
     @Autowired
-    public GoodsService(GoodsRepository goodsRepository, TypeRepository typeRepository)
-    {
+    public GoodsService(GoodsRepository goodsRepository, TypeRepository typeRepository) {
         this.goodsRepository = goodsRepository;
         this.typeRepository = typeRepository;
     }
-
-    public Response<List<Goods>> goods(Integer type, Integer subType, String province, String city, Integer page, Integer size)
-    {
+    public Response<List<Goods>> goods(Integer type, Integer subType, String province, String city, Integer page, Integer size) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(page, size, sort);
         List<Goods> goods = null;
@@ -50,23 +46,17 @@ public class GoodsService {
             goods = goodsRepository.findGoodsByStatus(1, pageable);
         return new Response<List<Goods>>(200, "", goods);
     }
-
-    public Response<List<Goods>> allGoods(Integer page, Integer size)
-    {
+    public Response<List<Goods>> allGoods(Integer page, Integer size) {
         Sort sort = new Sort(Sort.Direction.ASC, "id");
         Pageable pageable = new PageRequest(page, size, sort);
         return new Response<>(200, "", goodsRepository.findAll(pageable).getContent());
     }
-
-    public Response<List<Goods>> myGoods(HttpSession session)
-    {
+    public Response<List<Goods>> myGoods(HttpSession session) {
         Sort sort = new Sort(Sort.Direction.DESC, "id");
         Pageable pageable = new PageRequest(0, 100, sort);
         return new Response<List<Goods>>(200, "", goodsRepository.findGoodsByUser((User)session.getAttribute("user"), pageable));
     }
-
-    public Response<Object> publish(HttpSession session, String name, Integer price, String img, String province, String city, String district, Integer type, Integer subType, String detail)
-    {
+    public Response<Object> publish(HttpSession session, String name, Integer price, String img, String province, String city, String district, Integer type, Integer subType, String detail) {
         String pass = null;
         Goods goods = new Goods();
         Type typeObj = typeRepository.findOne(type);
@@ -77,8 +67,7 @@ public class GoodsService {
             pass = "名称不能为空";
         else if(price == null)
             pass = "价格不能为空";
-        if(pass == null)
-        {
+        if(pass == null) {
             goods.setUser((User)session.getAttribute("user"));
             goods.setStatus(GoodsStatus.selling.getNum());
             goods.setDate(new Date());
@@ -95,9 +84,7 @@ public class GoodsService {
         }
         return pass == null ? new Response<>() : new Response<>(400, pass, null);
     }
-
-    public Response<Object> update(HttpSession session,Integer id, String name, Integer price, String img, String province, String city, String district, Integer type, Integer subType, String detail)
-    {
+    public Response<Object> update(HttpSession session,Integer id, String name, Integer price, String img, String province, String city, String district, Integer type, Integer subType, String detail) {
         User user = (User)session.getAttribute("user");
         Goods goods = goodsRepository.findOne(id);
         Type typeObj = typeRepository.findOne(type);
@@ -129,9 +116,7 @@ public class GoodsService {
         }
         return pass == null ? new Response<>() : new Response<>(400, pass, null);
     }
-
-    public Response<Object> cancel (HttpSession session, Integer id)
-    {
+    public Response<Object> cancel (HttpSession session, Integer id) {
         User user = (User)session.getAttribute("user");
         Goods goods = goodsRepository.findOne(id);
         if(!goods.getUser().getId().equals(user.getId()))
@@ -139,25 +124,19 @@ public class GoodsService {
         goodsRepository.delete(goods);
         return new Response<>();
     }
-
-    public Response<List<Type>> allType(Integer page, Integer size)
-    {
+    public Response<List<Type>> allType(Integer page, Integer size) {
         Sort sort = new Sort(Sort.Direction.ASC, "id");
         Pageable pageable = new PageRequest(page, size, sort);
         return new Response<List<Type>>(200, "", typeRepository.findAll(pageable).getContent());
     }
-
-    public Response<Object> removeType(Integer id)
-    {
+    public Response<Object> removeType(Integer id) {
         Type type = typeRepository.getOne(id);
         if(type == null)
             return new Response<>(400, "分类不存在", null);
         typeRepository.delete(type);
         return new Response<>();
     }
-
-    public Response<Object> addType(Integer parent, String name, String icon)
-    {
+    public Response<Object> addType(Integer parent, String name, String icon) {
         if(!parent.equals(0))
             if(typeRepository.findOne(parent) == null)
                 return new Response<>(400, "父分类不存在", null);
@@ -168,12 +147,10 @@ public class GoodsService {
         typeRepository.save(type);
         return new Response<>();
     }
-
     public Integer count()
     {
         return Math.toIntExact(goodsRepository.count());
     }
-
     public Integer countType()
     {
         return Math.toIntExact(typeRepository.count());

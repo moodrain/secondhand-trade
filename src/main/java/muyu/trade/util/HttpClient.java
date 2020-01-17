@@ -21,8 +21,7 @@ public class HttpClient {
         DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
         StringBuilder dataString = new StringBuilder();
         Iterator<Map.Entry<String, String>> iterator = data.entrySet().iterator();
-        while(iterator.hasNext())
-        {
+        while(iterator.hasNext()) {
             Map.Entry entry = (Map.Entry) iterator.next();
             dataString.append(entry.getKey());
             dataString.append("=");

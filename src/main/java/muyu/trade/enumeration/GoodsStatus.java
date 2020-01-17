@@ -7,21 +7,17 @@ public enum GoodsStatus {
 
     private String info;
     private Integer num;
-    GoodsStatus(Integer num, String info)
-    {
+    GoodsStatus(Integer num, String info) {
         this.info = info;
         this.num = num;
     }
-    public String toString()
-    {
+    public String toString() {
         return info;
     }
-    public String getInfo()
-    {
+    public String getInfo() {
         return info;
     }
-    public Integer getNum()
-    {
+    public Integer getNum() {
         return num;
     }
 }

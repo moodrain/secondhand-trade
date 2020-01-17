@@ -12,8 +12,7 @@ public enum OrderStatus {
 
     private String info;
     private Integer num;
-    OrderStatus(Integer num, String info)
-    {
+    OrderStatus(Integer num, String info) {
         this.info = info;
         this.num = num;
     }

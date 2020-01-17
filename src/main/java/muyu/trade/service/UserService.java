@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -27,17 +26,14 @@ public class UserService {
     private OrderRepository orderRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, HttpClient httpClient, PhoneValidator phoneValidator, OrderRepository orderRepository)
-    {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, HttpClient httpClient, PhoneValidator phoneValidator, OrderRepository orderRepository) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.httpClient = httpClient;
         this.phoneValidator = phoneValidator;
         this.orderRepository = orderRepository;
     }
-
-    public User login(String username, String password, HttpSession session)
-    {
+    public User login(String username, String password, HttpSession session) {
         User user = userRepository.findUserByPhone(username);
         if(user != null && passwordEncoder.matches(password, user.getPassword()))
         {
@@ -47,16 +43,13 @@ public class UserService {
         }
         return null;
     }
-
-    public boolean sendCaptcha(String phone, HttpSession session)
-    {
+    public boolean sendCaptcha(String phone, HttpSession session) {
         if(!phoneValidator.validate(phone))
             return false;
         HashMap<String, String> map = new HashMap<String, String>();
         map.put("phone", phone);
         map.put("token", "");
-        try
-        {
+        try {
             String SMSApi = "";
             String captcha = httpClient.post(SMSApi, map);
             session.setAttribute("captchaPhone", phone);
@@ -66,9 +59,7 @@ public class UserService {
             return false;
         }
     }
-
-    public String register(HttpSession session, String phone, String password, String captcha)
-    {
+    public String register(HttpSession session, String phone, String password, String captcha) {
         if(!phoneValidator.validate(phone))
             return "手机号格式不正确";
         if(!phone.equals(session.getAttribute("captchaPhone")) || !captcha.equals(session.getAttribute("captcha")))
@@ -86,11 +77,8 @@ public class UserService {
         session.setAttribute("user", user);
         return null;
     }
-
-    public Boolean resetPassword(HttpSession session, String phone, String captcha, String password)
-    {
-        if(phone.equals(session.getAttribute("captchaPhone")) && captcha.equals(session.getAttribute("captcha")) && !password.isEmpty())
-        {
+    public Boolean resetPassword(HttpSession session, String phone, String captcha, String password) {
+        if(phone.equals(session.getAttribute("captchaPhone")) && captcha.equals(session.getAttribute("captcha")) && !password.isEmpty()) {
             User user = userRepository.findUserByPhone(phone);
             user.setPassword(passwordEncoder.encode(password));
             userRepository.save(user);
@@ -98,9 +86,7 @@ public class UserService {
         }
         return false;
     }
-
-    public Response<Object> editUserInfo(HttpSession session, User user)
-    {
+    public Response<Object> editUserInfo(HttpSession session, User user) {
         User oldUser = userRepository.findOne(((User)session.getAttribute("user")).getId());
         if(user.getNick() == null || user.getNick().isEmpty())
             return new Response<>(400, "昵称不能为空", null);
@@ -114,18 +100,14 @@ public class UserService {
         session.setAttribute("user", user);
         return new Response<>();
     }
-
-    public Response<Object> uploadAvatar(HttpSession session, String file)
-    {
+    public Response<Object> uploadAvatar(HttpSession session, String file) {
         User user = userRepository.findOne(((User)session.getAttribute("user")).getId());
         user.setAvatar(file);
         userRepository.save(user);
         session.setAttribute("user", user);
         return new Response<>();
     }
-
-    public Response<Object> updatePassword(HttpSession session, String oldPassword, String newPassword)
-    {
+    public Response<Object> updatePassword(HttpSession session, String oldPassword, String newPassword) {
         User user = userRepository.findOne(((User)session.getAttribute("user")).getId());
         if(!passwordEncoder.matches(oldPassword, user.getPassword()))
             return new Response<>(400, "原密码错误", null);
@@ -133,17 +115,14 @@ public class UserService {
         userRepository.save(user);
         return new Response<>();
     }
-
-    public Response<Map> user(Integer id)
-    {
+    public Response<Map> user(Integer id) {
         User user = userRepository.findOne(id);
         Map map = new HashMap();
         if(user == null)
             return new Response<Map>(200, "", null);
         else if(user.getIsHistoryPublic().equals(1))
             map.put("historyOrder", orderRepository.findOrdersByBuyerOrSeller(user, user).size());
-        else if(!user.getIsInfoPublic().equals(1))
-        {
+        else if(!user.getIsInfoPublic().equals(1)) {
             User newUser = new User();
             newUser.setId(user.getId());
             newUser.setAvatar(user.getAvatar());
@@ -155,14 +134,11 @@ public class UserService {
         map.put("userInfo", user);
         return new Response<Map>(200, "", map);
     }
-
-    public Response<List<User>> allUser(Integer page, Integer size)
-    {
+    public Response<List<User>> allUser(Integer page, Integer size) {
         Sort sort = new Sort(Sort.Direction.ASC, "id");
         Pageable pageable = new PageRequest(page, size, sort);
         return new Response<List<User>>(200, "", userRepository.findAll(pageable).getContent());
     }
-
     public Integer count()
     {
         return Math.toIntExact(userRepository.count());
